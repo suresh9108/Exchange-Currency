@@ -1,0 +1,76 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="viewModel"
+            type="com.exchangingcurrencyexchangetask.ui.viewmodels.MainViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp">
+
+        <Spinner
+            android:id="@+id/spinnerFrom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/spinner_background"
+            android:padding="12dp"
+            android:popupBackground="@color/white"
+            android:dropDownWidth="match_parent"
+            android:spinnerMode="dropdown"
+            android:drawableEnd="@drawable/ic_down_arrow"
+            android:drawablePadding="8dp"/> <!-- Adjust drawablePadding -->
+
+        <Spinner
+            android:id="@+id/spinnerTo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/spinnerFrom"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/spinner_background"
+            android:padding="12dp"
+            android:popupBackground="@color/white"
+            android:dropDownWidth="match_parent"
+            android:spinnerMode="dropdown"
+            android:drawableEnd="@drawable/ic_down_arrow"/>
+
+        <EditText
+            android:id="@+id/editTextAmount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/spinnerTo"
+            android:hint="Enter amount"
+            android:inputType="numberDecimal"
+            android:padding="12dp"
+            android:background="@drawable/edittext_background"/>
+
+        <Button
+            android:id="@+id/buttonConvert"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/editTextAmount"
+            android:layout_marginTop="30dp"
+            android:text="Convert"
+            android:background="@drawable/button_background"
+            android:textColor="@android:color/white"
+            android:padding="12dp"/>
+
+        <TextView
+            android:id="@+id/textViewResult"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/buttonConvert"
+            android:textSize="18sp"
+            android:layout_marginTop="16dp"
+            android:textColor="@android:color/black"/>
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:visibility="gone" />
+    </RelativeLayout>
+</layout>
