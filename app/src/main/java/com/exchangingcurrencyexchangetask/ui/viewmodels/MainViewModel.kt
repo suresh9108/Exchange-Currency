@@ -1,10 +1,12 @@
 package com.exchangingcurrencyexchangetask.ui.viewmodels
 
 import android.app.Application
+import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.exchangingcurrencyexchangetask.R
 import com.exchangingcurrencyexchangetask.network.NetworkUtils.isInternetAvailable
 import com.exchangingcurrencyexchangetask.data.repo.CurrencyRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -65,7 +67,7 @@ class MainViewModel @Inject constructor(
                 val result = (amount / fromRate) * toRate
                 _conversionResult.value = result.toString()
             } else {
-                _conversionResult.value = "Rates not available"
+                _conversionResult.value = application.getString(R.string.rates_not_available)
             }
 
             _isLoading.value = false // Stop loading after conversion is done

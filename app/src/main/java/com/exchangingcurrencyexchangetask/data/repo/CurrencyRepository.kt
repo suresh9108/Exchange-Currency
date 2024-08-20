@@ -6,6 +6,8 @@ import javax.inject.Singleton
 
 import android.content.Context
 import android.widget.Toast
+import androidx.compose.ui.res.stringResource
+import com.exchangingcurrencyexchangetask.R
 import com.exchangingcurrencyexchangetask.data.room.CurrencyRate
 import com.exchangingcurrencyexchangetask.data.api.ExchangeRateService
 import com.exchangingcurrencyexchangetask.data.room.CurrencyDao
@@ -22,7 +24,7 @@ class CurrencyRepository @Inject constructor(
     suspend fun getRates(baseCurrency: String): Map<String, Double>? {
         if (!isInternetAvailable(context)) {
             withContext(Dispatchers.Main) {
-                Toast.makeText(context, "No internet connection", Toast.LENGTH_LONG).show()
+                Toast.makeText(context,R.string.no_internet_connection, Toast.LENGTH_LONG).show()
             }
             return null
         }
@@ -38,7 +40,7 @@ class CurrencyRepository @Inject constructor(
             response.conversion_rates
         } catch (e: Exception) {
             withContext(Dispatchers.Main) {
-                Toast.makeText(context, "Failed to fetch rates: ${e.message}", Toast.LENGTH_LONG).show()
+                Toast.makeText(context, "${R.string.failed_rates} ${e.message}", Toast.LENGTH_LONG).show()
             }
             null
         }

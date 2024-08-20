@@ -8,4 +8,7 @@
     <string name="button_convert">Convert</string>
     <string name="error_select_from_currency">Please select a valid from currency</string>
     <string name="error_select_to_currency">Please select a valid to currency</string>
+    <string name="no_internet_connection">No internet connection</string>
+    <string name="failed_rates">Failed to fetch rates:</string>
+    <string name="rates_not_available">Rates not available</string>
 </resources>
