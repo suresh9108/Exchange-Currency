@@ -53,9 +53,6 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-    //dagger
-//    implementation (libs.dagger)
-//    annotationProcessor (libs.dagger.compiler)
 
     implementation (libs.androidx.room.runtime)
     annotationProcessor (libs.androidx.room.compiler)
@@ -79,7 +76,6 @@ dependencies {
     implementation (libs.kotlinx.coroutines.core)
 
     implementation (libs.androidx.lifecycle.viewmodel.ktx)
-//    implementation (libs.androidx.lifecycle.runtime.ktx)
 
     implementation(libs.dagger.hilt)
     kapt (libs.androidx.hilt.compiler)
@@ -88,8 +84,6 @@ dependencies {
     implementation(libs.androidx.room.ktx)
     kapt(libs.dagger.hilt.compiler)
     implementation(libs.androidx.hilt.navigation.compose)
-//    implementation (libs.androidx.lifecycle.viewmodel.ktx)
-    // For instrumented tests
     androidTestImplementation (libs.hilt.android.testing)
     kaptAndroidTest (libs.hilt.android.compiler)
     testImplementation (libs.mockito.core)

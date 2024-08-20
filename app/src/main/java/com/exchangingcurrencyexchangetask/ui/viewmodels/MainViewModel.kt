@@ -1,6 +1,7 @@
 package com.exchangingcurrencyexchangetask.ui.viewmodels
 
 import android.app.Application
+import android.util.Log
 import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -35,7 +36,7 @@ class MainViewModel @Inject constructor(
         }
     }
 
-    private suspend fun loadCurrencies(baseCurrency: String) {
+     suspend fun loadCurrencies(baseCurrency: String) {
         val rates = if (isInternetAvailable(application)) {
             repository.getRates(baseCurrency)
         } else {
@@ -53,6 +54,7 @@ class MainViewModel @Inject constructor(
 
     fun convert(amount: Double, from: String, to: String) {
         _isLoading.value = true // Start loading during conversion
+
         viewModelScope.launch {
             val rates = if (isInternetAvailable(application)) {
                 repository.getRates(to)
@@ -65,6 +67,7 @@ class MainViewModel @Inject constructor(
                 val fromRate = rates[from] ?: 1.0
                 val toRate = rates[to] ?: 1.0
                 val result = (amount / fromRate) * toRate
+                Log.e("TAG", "convert: $amount   $fromRate  $toRate   ${(amount / fromRate)}  $result", )
                 _conversionResult.value = result.toString()
             } else {
                 _conversionResult.value = application.getString(R.string.rates_not_available)

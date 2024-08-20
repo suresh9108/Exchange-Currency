@@ -10,53 +10,82 @@
         android:layout_height="match_parent"
         android:padding="16dp">
 
-        <Spinner
-            android:id="@+id/spinnerFrom"
+        <!-- From Currency Spinner -->
+        <RelativeLayout
+            android:id="@+id/spinnerFrom_rl"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
+            android:layout_height="50dp"
             android:background="@drawable/spinner_background"
-            android:padding="12dp"
-            android:popupBackground="@color/white"
-            android:dropDownWidth="match_parent"
-            android:spinnerMode="dropdown"
-            android:drawableEnd="@drawable/ic_down_arrow"
-            android:drawablePadding="8dp"/> <!-- Adjust drawablePadding -->
+            android:layout_marginTop="15dp">
 
-        <Spinner
-            android:id="@+id/spinnerTo"
+            <Spinner
+                android:id="@+id/spinnerFrom"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textSize="16sp"
+                android:background="@null"
+                android:gravity="center_vertical"
+                android:minHeight="0dp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:src="@drawable/ic_down_arrow"
+                android:contentDescription="@string/dropdown_arrow" />
+        </RelativeLayout>
+
+        <!-- To Currency Spinner -->
+        <RelativeLayout
+            android:id="@+id/spinnerTo_rl"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/spinnerFrom"
-            android:layout_marginBottom="8dp"
+            android:layout_height="50dp"
+            android:layout_below="@id/spinnerFrom_rl"
             android:background="@drawable/spinner_background"
-            android:padding="12dp"
-            android:popupBackground="@color/white"
-            android:dropDownWidth="match_parent"
-            android:spinnerMode="dropdown"
-            android:drawableEnd="@drawable/ic_down_arrow"/>
+            android:layout_marginTop="10dp">
 
+            <Spinner
+                android:id="@+id/spinnerTo"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textSize="16sp"
+                android:background="@null"
+                android:gravity="center_vertical"
+                android:minHeight="0dp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:src="@drawable/ic_down_arrow"
+                android:contentDescription="@string/dropdown_arrow" />
+        </RelativeLayout>
+
+        <!-- Amount Input -->
         <EditText
             android:id="@+id/editTextAmount"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/spinnerTo"
-            android:hint="Enter amount"
+            android:layout_below="@id/spinnerTo_rl"
+            android:hint="@string/enter_amount"
+            android:layout_marginTop="10dp"
             android:inputType="numberDecimal"
             android:padding="12dp"
-            android:background="@drawable/edittext_background"/>
+            android:background="@drawable/edittext_background" />
 
+        <!-- Convert Button -->
         <Button
             android:id="@+id/buttonConvert"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/editTextAmount"
             android:layout_marginTop="30dp"
-            android:text="Convert"
+            android:text="@string/convert"
             android:background="@drawable/button_background"
             android:textColor="@android:color/white"
-            android:padding="12dp"/>
+            android:padding="12dp" />
 
+        <!-- Conversion Result -->
         <TextView
             android:id="@+id/textViewResult"
             android:layout_width="wrap_content"
@@ -64,8 +93,12 @@
             android:layout_below="@id/buttonConvert"
             android:textSize="18sp"
             android:layout_marginTop="16dp"
-            android:textColor="@android:color/black"/>
+            android:textColor="@android:color/black"
+        android:textColorHint="@color/red"
+        android:textColorLink="@color/black"/>
 
+
+        <!-- Progress Bar -->
         <ProgressBar
             android:id="@+id/progressBar"
             android:layout_width="wrap_content"

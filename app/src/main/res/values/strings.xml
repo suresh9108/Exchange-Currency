@@ -11,4 +11,7 @@
     <string name="no_internet_connection">No internet connection</string>
     <string name="failed_rates">Failed to fetch rates:</string>
     <string name="rates_not_available">Rates not available</string>
+    <string name="dropdown_arrow">Dropdown arrow</string>
+    <string name="enter_amount">Enter amount</string>
+    <string name="convert">Convert</string>
 </resources>
