@@ -10,12 +10,13 @@ import androidx.lifecycle.viewModelScope
 import com.exchangingcurrencyexchangetask.R
 import com.exchangingcurrencyexchangetask.network.NetworkUtils.isInternetAvailable
 import com.exchangingcurrencyexchangetask.data.repo.CurrencyRepository
+import com.exchangingcurrencyexchangetask.utils.Constants.Companion.DEFAULT_CURRENCY
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class MainViewModel @Inject constructor(
+class   MainViewModel @Inject constructor(
     private val repository: CurrencyRepository,
     private val application: Application
 ) : ViewModel() {
@@ -32,7 +33,7 @@ class MainViewModel @Inject constructor(
     init {
         _isLoading.value = true // Start loading
         viewModelScope.launch {
-            loadCurrencies("USD")
+            loadCurrencies(DEFAULT_CURRENCY)
         }
     }
 
@@ -59,7 +60,7 @@ class MainViewModel @Inject constructor(
             val rates = if (isInternetAvailable(application)) {
                 repository.getRates(to)
             } else {
-                val currencyRate = repository.getStoredRates("USD")
+                val currencyRate = repository.getStoredRates(DEFAULT_CURRENCY)
                 currencyRate?.rates ?: emptyMap()
             }
 

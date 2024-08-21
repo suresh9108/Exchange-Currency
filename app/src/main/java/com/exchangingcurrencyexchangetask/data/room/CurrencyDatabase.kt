@@ -5,6 +5,7 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
+import com.exchangingcurrencyexchangetask.utils.Constants.Companion.DB_NAME
 import com.exchangingcurrencyexchangetask.utils.Converters
 
 @Database(entities = [CurrencyRate::class], version = 1, exportSchema = false)
@@ -21,7 +22,7 @@ abstract class CurrencyDatabase : RoomDatabase() {
                 val instance = Room.databaseBuilder(
                     context.applicationContext,
                     CurrencyDatabase::class.java,
-                    "currency_db"
+                    DB_NAME
                 ).build()
                 INSTANCE = instance
                 instance

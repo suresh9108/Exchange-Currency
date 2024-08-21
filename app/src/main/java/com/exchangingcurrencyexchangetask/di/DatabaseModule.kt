@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.room.Room
 import com.exchangingcurrencyexchangetask.data.room.CurrencyDao
 import com.exchangingcurrencyexchangetask.data.room.CurrencyDatabase
+import com.exchangingcurrencyexchangetask.utils.Constants.Companion.DB_NAME
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -20,7 +21,7 @@ object DatabaseModule {
         return Room.databaseBuilder(
             appContext,
             CurrencyDatabase::class.java,
-            "currency_db"
+            DB_NAME
         ).build()
     }
 

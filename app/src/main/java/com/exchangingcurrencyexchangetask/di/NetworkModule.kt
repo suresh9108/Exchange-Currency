@@ -1,6 +1,7 @@
 package com.exchangingcurrencyexchangetask.di
 
 import com.exchangingcurrencyexchangetask.data.api.ExchangeRateService
+import com.exchangingcurrencyexchangetask.utils.Constants.Companion.BASE_URL
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -19,7 +20,7 @@ object NetworkModule {
     @Singleton
     fun provideRetrofit(): Retrofit {
         return Retrofit.Builder()
-            .baseUrl("https://v6.exchangerate-api.com/v6/e2adccb184d9997d8b575853/")
+            .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .client(add())
             .build()
